@@ -93,4 +93,8 @@ tempo = (inicio - fim) * -1
 tempo_minutos = tempo // 60
 tempo_segundos = tempo % 60
 
-print(f"Acabou!!!!! Você demorou {tempo_minutos:.0f} minutos e {tempo_segundos:.0f} segundos para percorrer todos os BRs!!")
+while True:
+    print(f"\rAcabou!!!!! Você demorou {tempo_minutos:.0f} minutos e {tempo_segundos:.0f} segundos para percorrer todos os BRs!!")
+    if True:
+      input("Clique 'ENTER' para fechar o programa: ")
+    break
