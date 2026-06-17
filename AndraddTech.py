@@ -1,7 +1,7 @@
 import qrcode       # Permite usar a biblioteca "qrcode" sem isso daria erro.
 from PIL import ImageTk  # Aqui eu pego sómente a ferramenta "ImageTk" que é a ferramenta q mostra imagem dentro do "tkinter", O "PIL" tem farias ferramenta, ali eu disse q queria uma em especifico.
 import tkinter as tk # É a ferramneta q cria janela, e eli eu digo q vou resumir "tkinter" para "tk" para ficar mais limpo a leitura e digitaçao.
-
+import pyperclip # essa ferramenta le oq esta no "Ctrl + C" do ususario.
 LARGURA = 108
 
 print("╔" + "═" * (LARGURA - 2) + "╗")
@@ -15,15 +15,18 @@ print("Opaaa, Tudo Bem??")
 print("Meu Analista Lindo, Vamos começar!!")
 print("A janela do QRcode pode estar atrás destas janela após iniciar, fique atendo depois de digitar as BRs!!!!!")
 
+input("Cole as BRs. Sómente as BRs!!!: ") # Aqui eu falo para o Analista ou operador do programa por as BRs.
+brs_acumuladas = pyperclip.paste() # Assim q ele cliclar isso pega oq esta no "Ctrl + C" do ususario.
+brs_acumuladas = brs_acumuladas.replace("\n", " ")
+
 while True:  # Enquanto eu nao falar para filaizar "break" continue executando em loop.
 
-   brs_acumuladas = input("Cole as BRs. Sómente as BRs!!!: ") # Aqui eu pego as BRs coladas polo Analista ou operador do programa.
    brs_acumuladas_verifcar = brs_acumuladas.replace(" ", "").isalnum() # Neste ponto eu verifico se tem somente letras e numeros, caso o operador tenha copiado algo de errado nao ferrar o sistema.
    if brs_acumuladas_verifcar == True: # Se tiver tudo certo ele finaliza o loop e avança para as proximas etapas
         break   
    print('Analista, vc copiou errado, tem algum ".", "," etc.') # Caso esteja errado a verificação ele mostra essa msg e pede novamente as BRs até funcionar. 
    
-        
+
 lista_brs = brs_acumuladas.split() # tranformo a as BRs coladas em uma lista onde cada BR vira um item.
 quantidade_de_br = len(lista_brs)
 indice = 0   # Começa mostrando a primeira BR da lista
